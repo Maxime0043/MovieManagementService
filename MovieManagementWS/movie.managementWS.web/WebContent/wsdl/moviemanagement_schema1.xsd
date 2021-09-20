@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?><xs:schema xmlns:tns="http://service/" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://service/" version="1.0">
+<xs:element name="addActor" type="tns:addActor"/>
+<xs:element name="addActorResponse" type="tns:addActorResponse"/>
+<xs:element name="addMovie" type="tns:addMovie"/>
+<xs:element name="addMovieResponse" type="tns:addMovieResponse"/>
+<xs:element name="getMovieInfo" type="tns:getMovieInfo"/>
+<xs:element name="getMovieInfoResponse" type="tns:getMovieInfoResponse"/>
+<xs:element name="linkActorToMovie" type="tns:linkActorToMovie"/>
+<xs:element name="linkActorToMovieResponse" type="tns:linkActorToMovieResponse"/>
+<xs:complexType name="linkActorToMovie">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg1" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="linkActorToMovieResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="addActor">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:actor"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="actor">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="name" type="xs:string"/>
+      <xs:element minOccurs="0" name="role" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="addActorResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getMovieInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getMovieInfoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:movie"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="movie">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="linkMovieToActor" nillable="true" type="tns:actor"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="genre" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="release_date" type="xs:string"/>
+      <xs:element minOccurs="0" name="title" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="addMovie">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:movie"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="addMovieResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

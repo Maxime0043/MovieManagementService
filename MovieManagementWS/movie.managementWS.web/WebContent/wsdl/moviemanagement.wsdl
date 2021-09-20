@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="MovieManagementImplService" targetNamespace="http://service/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://service/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <schema xmlns="http://www.w3.org/2001/XMLSchema">
+  <import namespace="http://service/" schemaLocation="moviemanagement_schema1.xsd"/>
+</schema>
+  </wsdl:types>
+  <wsdl:message name="linkActorToMovieResponse">
+    <wsdl:part name="parameters" element="tns:linkActorToMovieResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="linkActorToMovie">
+    <wsdl:part name="parameters" element="tns:linkActorToMovie">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addActorResponse">
+    <wsdl:part name="parameters" element="tns:addActorResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addActor">
+    <wsdl:part name="parameters" element="tns:addActor">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getMovieInfo">
+    <wsdl:part name="parameters" element="tns:getMovieInfo">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getMovieInfoResponse">
+    <wsdl:part name="parameters" element="tns:getMovieInfoResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addMovie">
+    <wsdl:part name="parameters" element="tns:addMovie">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addMovieResponse">
+    <wsdl:part name="parameters" element="tns:addMovieResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="MovieManagement">
+    <wsdl:operation name="linkActorToMovie">
+      <wsdl:input name="linkActorToMovie" message="tns:linkActorToMovie">
+    </wsdl:input>
+      <wsdl:output name="linkActorToMovieResponse" message="tns:linkActorToMovieResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addActor">
+      <wsdl:input name="addActor" message="tns:addActor">
+    </wsdl:input>
+      <wsdl:output name="addActorResponse" message="tns:addActorResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMovieInfo">
+      <wsdl:input name="getMovieInfo" message="tns:getMovieInfo">
+    </wsdl:input>
+      <wsdl:output name="getMovieInfoResponse" message="tns:getMovieInfoResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addMovie">
+      <wsdl:input name="addMovie" message="tns:addMovie">
+    </wsdl:input>
+      <wsdl:output name="addMovieResponse" message="tns:addMovieResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MovieManagementImplServiceSoapBinding" type="tns:MovieManagement">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="linkActorToMovie">
+      <soap:operation soapAction="urn:LinkActorToMovie" style="document"/>
+      <wsdl:input name="linkActorToMovie">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="linkActorToMovieResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addActor">
+      <soap:operation soapAction="urn:AddActor" style="document"/>
+      <wsdl:input name="addActor">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="addActorResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMovieInfo">
+      <soap:operation soapAction="urn:GetMovieInfo" style="document"/>
+      <wsdl:input name="getMovieInfo">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getMovieInfoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addMovie">
+      <soap:operation soapAction="urn:AddMovie" style="document"/>
+      <wsdl:input name="addMovie">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="addMovieResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MovieManagementImplService">
+    <wsdl:port name="MovieManagementImplPort" binding="tns:MovieManagementImplServiceSoapBinding">
+      <soap:address location="http://localhost:8080/movie.managementWS.web/services/MovieManagementImplPort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
