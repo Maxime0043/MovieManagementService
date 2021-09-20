@@ -1,4 +1,4 @@
-**# MovieManagementService**
+# MovieManagementService
 
 ## Members
 ### Names
@@ -6,8 +6,8 @@
 * PINNA Maxime
 
 ### Emails
-* micaeldupuis@live.fr
-* max.pinna@hotmail.fr
+* **micaeldupuis@live.fr**
+* **max.pinna@hotmail.fr**
 
 ## Services' description
 We have created two services to provide different functionalities around movie management. One is a REST web service and the other is a WS-* (or SOAP) web service.
